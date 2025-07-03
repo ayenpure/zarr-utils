@@ -1,9 +1,10 @@
 import sys
-from zarr_utils.inspect import list_zarr_arrays
-from zarr_utils.xarray import open_xarray
-from zarr_utils.convert import wrap_vtk
 
 import pyvista as pv
+
+from zarr_utils.convert import wrap_vtk
+from zarr_utils.inspect import list_zarr_arrays
+from zarr_utils.xarray import open_xarray
 
 
 def prompt_for_choice(arrays):
