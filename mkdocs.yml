@@ -1,0 +1,97 @@
+site_name: zarr-utils
+site_description: Python utilities for working with Zarr datasets
+site_author: zarr-utils contributors
+site_url: https://zarr-utils.readthedocs.io
+repo_url: https://github.com/yourusername/zarr-utils
+repo_name: zarr-utils
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [.]
+          options:
+            show_source: true
+            show_root_heading: true
+            show_category_heading: true
+            members_order: source
+            separate_signature: true
+            filters: ["!^_"]
+            docstring_section_style: spacy
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.mark
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quickstart.md
+      - Examples: getting-started/examples.md
+  - User Guide:
+      - Inspecting Zarr Stores: user-guide/inspect.md
+      - Working with Xarray: user-guide/xarray.md
+      - Visualization: user-guide/visualization.md
+      - Metadata Management: user-guide/metadata.md
+      - Debugging Tools: user-guide/debug.md
+      - Zarr v2/v3 Compatibility: user-guide/compatibility.md
+  - API Reference:
+      - zarr_utils: api/index.md
+      - zarr_utils.inspect: api/inspect.md
+      - zarr_utils.xarray: api/xarray.md
+      - zarr_utils.visualization: api/visualization.md
+      - zarr_utils.metadata: api/metadata.md
+      - zarr_utils.debug: api/debug.md
+      - zarr_utils.compat: api/compat.md
+  - Development:
+      - Contributing: development/contributing.md
+      - Testing: development/testing.md
+      - Release Notes: development/changelog.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername/zarr-utils
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/zarr-utils/
