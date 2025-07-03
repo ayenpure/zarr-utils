@@ -12,7 +12,7 @@ except ImportError:
     to_vtk = None
     to_vti = None
 
-__version__ = "1.1.6"
+__version__ = "0.1.0"
 
 __all__ = [
     "__version__",
