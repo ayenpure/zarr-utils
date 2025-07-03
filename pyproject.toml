@@ -1,0 +1,70 @@
+[project]
+name = "zarr-utils"
+version = "0.1.0"
+description = "Utilities for inspecting, wrapping, and exporting Zarr datasets"
+authors = [
+    { name = "Abhishek Yenpure" }
+]
+dependencies = [
+    "xarray",
+    "zarr",
+    "numpy",
+    "fsspec",
+    "s3fs",
+    "dask",
+    "vtk",         # optional: for to_vti / to_vtk
+    "pyvista"
+]
+requires-python = ">=3.9"
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = ["Python", "Zarr", "Utilities", "Framework"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dev = [
+    "pytest >=6",
+    "pre-commit",
+    "ruff",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = [
+  "zarr_utils/**/*.py"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "zarr_utils",
+]
+
+[tool.semantic_release]
+version_variables = [
+    "zarr_utils/__init__.py:__version__",
+]
+version_toml = [
+    "pyproject.toml:project.version",
+]
+build_command = """
+  python -m venv .zutils
+  source .zutils/bin/activate
+  pip install -U pip build
+  python -m build .
+"""
+
+[tool.uv]
+dev-dependencies = [
+  "zarr_utils",
+]
